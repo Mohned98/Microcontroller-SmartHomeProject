@@ -2,6 +2,12 @@
 #define	__UART_H__
 
 
+
+#include "MACROS.h"
+#include "STANDARD_TYPES.h"
+#include "SysTick.h"
+#include "tm4c123gh6pm.h"
+
 #define boudRateDivider = 16
 #define Clk = 80000000 
 #define BAUDRATE(BaudRate) (Clk / (BaudRate*boudRateDivider)) 
