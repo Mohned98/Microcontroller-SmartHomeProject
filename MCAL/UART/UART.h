@@ -19,12 +19,12 @@ typedef enum {
 
 
 typedef enum {
- OFF , ON
+ Parity_OFF , Parity_ON
 } PARITY;
 
 
 typedef enum {
- OFF , ON
+ Interrupt_OFF , Interrupt_ON
 } INTERRUPT;
 
 
