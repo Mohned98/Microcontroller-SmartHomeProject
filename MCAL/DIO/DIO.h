@@ -31,8 +31,8 @@ typedef enum
 	/*Functions prototypes*/
 	void DIO_Init( Dio_PortName port_name,uint8 pins_mask );
 	void DIO_SetPinDirection( Dio_PortName port_name, uint8 pins_mask, Dio_PinDirectionType pins_direction );
-	void DIO_SetPinPullUp( Dio_PortName port_name, uint8 pins_mask);
-	void DIO_SetPinPullDown( Dio_PortName port_name, uint8 pins_mask);
+	void DIO_SetPinPullUp( Dio_PortName port_name, uint8 pins_mask , uint8 enable);
+	void DIO_SetPinPullDown( Dio_PortName port_name, uint8 pins_mask , uint8 enable);
 	uint8 DIO_ReadPort( Dio_PortName port_name, uint8 pins_mask );
 	void DIO_WritePort(Dio_PortName port_name, uint8 pins_mask, Dio_LevelType pins_level);
 	void DIO_FlipPort(Dio_PortName port_name, uint8 pins_mask);
