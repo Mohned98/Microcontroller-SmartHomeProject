@@ -22,18 +22,18 @@ typedef enum {
 } INTERRUPT;
 
 
-void UART_Init(UARTNUM UartNum , u32 BaudRate , PARITY Parity , INTERRUPT interrupt );
+void UART_Init(UARTNUM UartNum , uint32 BaudRate , PARITY Parity , INTERRUPT interrupt );
 
 
-u8 UART_Available(UARTNUM UartNum);
+uint8 UART_Available(UARTNUM UartNum);
 
 
-u8 UART_Read(UARTNUM UartNum);
+uint8 UART_Read(UARTNUM UartNum);
 
 
-void UART_Write(UARTNUM UartNum,u8 data);
+void UART_Write(UARTNUM UartNum,uint8 data);
 
-void Uart_Print (UARTNUM UartNum,u8 data)
+void UART_Print (UARTNUM UartNum,uint8 data)
 
 #endif // __UART_H__
 
