@@ -1,11 +1,11 @@
 #include "port.h"
 
 
-void Port_Init( uint8 port_index )
+void DIO_Init( Dio_PortName port_name,uint8 pins_mask );
 {
-		SYSCTL_RCGCGPIO_R|=1<<port_index;                  //enable the clock for required port
-		while(!IS_BIT_SET(SYSCTL_PRGPIO_R,port_index));    //wait until clock is configured
-		switch(port_index)                                 //unlock and digital enable all the pins of required port 
+		SYSCTL_RCGCGPIO_R|=1<<port_name;                  //enable the clock for required port
+		while(!IS_BIT_SET(SYSCTL_PRGPIO_R,port_name));    //wait until clock is configured
+		switch(port_name)                                 //unlock and digital enable all the pins of required port 
 		{
 			case 0:
 				GPIO_PORTA_LOCK_R=GPIO_LOCK_KEY;
@@ -59,9 +59,9 @@ void Port_Init( uint8 port_index )
 }
 
 	
-void Port_SetPinDirection( uint8 port_index, uint8 pins_mask, Port_PinDirectionType pins_direction )
+void DIO_SetPinDirection( Dio_PortName port_name, uint8 pins_mask, Dio_PinDirectionType pins_direction );
 {
-		switch (port_index)
+		switch (port_name)
 		{
 			case 0 :
 				switch(pins_direction)
@@ -138,9 +138,9 @@ void Port_SetPinDirection( uint8 port_index, uint8 pins_mask, Port_PinDirectionT
 }
 
 
-void Port_SetPinPullUp( uint8 port_index, uint8 pins_mask, uint8 enable )
+void DIO_SetPinPullUp( Dio_PortName port_name, uint8 pins_mask , uint8 enable);
 {
-	switch(port_index){
+	switch(port_name){
 		case 0: 
 			(enable)?(GPIO_PORTA_PUR_R|=pins_mask):(GPIO_PORTA_PUR_R&=(~pins_mask)); 
 			 break;
@@ -163,9 +163,9 @@ void Port_SetPinPullUp( uint8 port_index, uint8 pins_mask, uint8 enable )
 	}
 }
 
-void Port_SetPinPullDown( uint8 port_index, uint8 pins_mask, uint8 enable )
+void DIO_SetPinPullDown( Dio_PortName port_name, uint8 pins_mask , uint8 enable);
 {
-	switch(port_index){
+	switch(port_name){
 		case 0: 
 			(enable)?(GPIO_PORTA_PDR_R|=pins_mask):(GPIO_PORTA_PDR_R&=(~pins_mask)); 
 				break;
