@@ -1,9 +1,12 @@
 /**
-  * @brief This function Checks whether the targeted UART is Available for transaction or not
+  * @brief This function Checks whether the targeted UART selected by UartNum is Available to read from or not 
+	*	       (Receiver  FIFO is empty or not)
   * @param UartNum indicating the selected UART to be checked
-  * @retval u8 to return 0 if available 1 if not available
+  * @retval uint8 to return 1 if available 0 if not available
   */
-u8 UART_Available(UARTNUM UartNum){
+	
+<UART.h>
+uint8 UART_Available(UARTNUM UartNum){
 	switch(UartNum){
 		case 0:
 			return ((UART0_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
