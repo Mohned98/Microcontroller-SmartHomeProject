@@ -39,7 +39,7 @@ uint8 UART_Read(UARTNUM UartNum);
 
 void UART_Write(UARTNUM UartNum,uint8 data);
 
-void UART_Print (UARTNUM UartNum,uint8 data)
+void UART_Print (UARTNUM UartNum,const char *Str)
 
 #endif // __UART_H__
 
