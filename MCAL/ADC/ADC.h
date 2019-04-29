@@ -5,6 +5,14 @@
 #include "STANDARD_TYPES.h"
 #include "SysTick.h"
 #include "tm4c123gh6pm.h"
+#include "ADC.h"
+#include "DIO.h"
+
+typedef enum {
+ AN0,AN1,AN2,AN3,AN4,AN5,AN6,AN7,AN8,AN9,AN10,AN11
+} ADC_Channel;
+
+
 
 /*******************************************************************************
  *                      Functions Prototypes                                   *
