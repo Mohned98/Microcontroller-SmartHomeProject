@@ -1,3 +1,4 @@
+#include "UART.h"
 void UART_Write(UARTNUM UartNum,u8 data){
 	switch(UartNum){
 		case 0:
