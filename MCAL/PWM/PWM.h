@@ -1,7 +1,6 @@
 #ifndef PWM_H_
 #define PWM_H_
 
-#include "MACROS.h"
 #include "STANDARD_TYPES.h"
 #include "tm4c123gh6pm.h"
 
@@ -31,7 +30,7 @@ typedef enum {
 // Inputs:  module - the PWM module name.
 //          channel - the PWM channel name.
 //          period - the pulse period.
-//          duty - the number of cycles for initial duty cycle 
+//          duty - the duty cycle as percentage. 
 // Outputs:  void.
 void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty);
 
@@ -40,7 +39,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty);
 // Set the duty cycle of an enabled PWM module/channel
 // Inputs:  module - the PWM module name.
 //          channel - the PWM channel name.
-//          duty - the number of cycles for the duty cycle.
+//          duty - the duty cycle as percentage.
 // Outputs:  void.
 void PWM_SetDuty(PWMModule module, PWMChannel channel, uint16 duty);
 
