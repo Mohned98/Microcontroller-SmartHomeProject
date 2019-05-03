@@ -60,3 +60,40 @@ switch (Channel)
 
 }
 }
+
+
+float ADC_read(ADC_Channel Channel)
+{	
+//make sure the gpio is ready
+SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R4;
+// seqncer 
+ADC0_SSPRI_R = (ADC0_SS3_PRI | ADC0_SS2_PRI | ADC0_SS1_PRI | ADC0_SS0_PRI);
+// .Enable the clock to the ADC
+SET_BIT(SYSCTL_RCGCADC_R,0);
+//Select start conversion trigger method .e.g. using software trigger
+ADC0_EMUX_R = ~0xF000;
+//Set Sample Sequencer Control characteristics
+ADC0_SSCTL3_R |= 6; // single-ended, one-conversion and raw interrupt
+//Enable Sample Sequencer
+ADC0_ACTSS_R |= 8;
+//Disable Sample Sequencer before making changes
+ADC0_ACTSS_R &= ~0x8;
+//Select ADC input channel
+ADC0_SSMUX3_R = Channel;
+//Enable Sample Sequencer before making changes
+ADC0_ACTSS_R |= 0x8;
+//start
+ADC0_PSSI_R |= 8;
+//wait for the flag
+while(IS_BIT_SET(ADC0_RIS_R,0x08));
+//clear the flag
+ADC0_ISC_R =8;
+//return the result
+return ADC0_SSFIFO3_R&0xFFF;
+
+}
+
+
+
+
+
