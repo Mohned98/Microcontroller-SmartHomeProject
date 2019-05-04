@@ -3,7 +3,8 @@
 void ADC_init(ADC_Channel Channel)
 {
 int PinNumber = 0;
-
+// .Enable the clock to the ADC
+SYSCTL_RCGCADC_R |= SYSCTL_RCGCADC_R0;
 switch (Channel)
 {
     case AN0:
@@ -33,7 +34,7 @@ switch (Channel)
             // Pin Number = 4 - Channel
             PinNumber = (3 - Channel);
             // Enabling GPIO PortE and the PIN to Input  
-//            DIO_Init(PORTD,PinNumber);
+           DIO_Init(PORTD,PinNumber);
             //Set the GPIOAFSEL (GPIO alternate function) bit for ADC input pin to 1
             SET_BIT(GPIO_PORTD_AFSEL_R,PinNumber);
             //Configure AINx signal to be used as analog input by clearing the bit in the GPIODEN (GPIO Digital enable) register.
