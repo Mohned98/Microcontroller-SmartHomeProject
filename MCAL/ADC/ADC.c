@@ -62,15 +62,13 @@ switch (Channel)
 }
 }
 
-
 float ADC_read(ADC_Channel Channel)
 {	
+float result;
 //make sure the gpio is ready
-SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R4;
+SYSCTL_RCGCGPIO_R |= (Channel <= 3 || Channel == 8 || Channel == 9)? SYSCTL_RCGCGPIO_R4:(Channel >= 4 && Channel <= 7)? SYSCTL_RCGCGPIO_R3 : SYSCTL_RCGCGPIO_R1;
 // seqncer 
-ADC0_SSPRI_R = (ADC0_SS3_PRI | ADC0_SS2_PRI | ADC0_SS1_PRI | ADC0_SS0_PRI);
-// .Enable the clock to the ADC
-SET_BIT(SYSCTL_RCGCADC_R,0);
+ADC0_SSPRI_R = (ADC0_SS3_PRI);
 //Select start conversion trigger method .e.g. using software trigger
 ADC0_EMUX_R = ~0xF000;
 //Set Sample Sequencer Control characteristics
@@ -88,9 +86,11 @@ ADC0_PSSI_R |= 8;
 //wait for the flag
 while(IS_BIT_SET(ADC0_RIS_R,0x08));
 //clear the flag
+result = ADC0_SSFIFO3_R&0xFFF;
+//
 ADC0_ISC_R =8;
 //return the result
-return ADC0_SSFIFO3_R&0xFFF;
+return result;
 
 }
 
