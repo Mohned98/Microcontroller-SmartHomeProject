@@ -3,7 +3,7 @@
 
 #include "STANDARD_TYPES.h"
 #include "tm4c123gh6pm.h"
-
+#include "MACROS.h"
 
 // Names of the PWM channels
 typedef enum {
