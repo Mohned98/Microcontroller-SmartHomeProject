@@ -8,6 +8,9 @@
 #include "MACROS.h"
 
 
+#define ADC0_PSSI_SS3			(0x1 << 3)
+#define ADC0_RIS_INR3			(0x1 << 3)
+#define GPIO_PE3_M				(0x1 << 3)
 
 #define ADC0_SS0_PRI 			0x3
 #define ADC0_SS1_PRI 			(0x2 << 4)
