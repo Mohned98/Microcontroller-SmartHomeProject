@@ -1,4 +1,4 @@
-
+#include "PWM.h"
 
 //----------------------- PWM_SetDuty --------------------------
 // Set the duty cycle of an enabled PWM module/channel
