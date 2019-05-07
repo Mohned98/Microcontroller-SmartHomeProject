@@ -1,45 +1,49 @@
 #include "UART.h"
-u8 UART_Read(UARTNUM UartNum)
+#define one 1
+uint8 UART_Read(UARTNUM UartNum)
 {
+	uint8 value;
 switch (UARTNUM){
-	case 0:
-		while (UART_Available(0)!=1);
-		return (uint8_t)(UART0_DR_R&0xFF);
+	case uart0:
+		while (UART_Available(uart0)!=one);
+		value = (uint8)(UART0_DR_R&0xFF);
 		break;
 	
-	case 1:
-		while (UART_Available(1)!=1);
-		return (uint8_t)(UART1_DR_R&0xFF);
+	case uart1:
+		while (UART_Available(uart1)!=one);
+		value = (uint8)(UART1_DR_R&0xFF);
 		break;
 	
-	case 2:
-		while (UART_Available(2)!=1);
-		return (uint8_t)(UART2_DR_R&0xFF);
+	case uart2:
+		while (UART_Available(uart2)!=one);
+		value = (uint8)(UART2_DR_R&0xFF);
 		break;
 	
-	case 3:
-		while (UART_Available(3)!=1);
-		return (uint8_t)(UART3_DR_R&0xFF);
+	case uart3:
+		while (UART_Available(uart3)!=one);
+		value = (uint8)(UART3_DR_R&0xFF);
 		break;
 	
-	case 4:
-		while (UART_Available(4)!=1);
-		return (uint8_t)(UART4_DR_R&0xFF);
+	case uart4:
+		while (UART_Available(uart4)!=one);
+		value = (uint8)(UART4_DR_R&0xFF);
 		break;
 	
-	case 5:
-		while (UART_Available(5)!=1);
-		return (uint8_t)(UART5_DR_R&0xFF);
+	case uart5:
+		while (UART_Available(uart5)!=one);
+		value = (uint8)(UART5_DR_R&0xFF);
 		break;
 	
-	case 6:
-		while (UART_Available(6)!=1);
-		return (uint8_t)(UART6_DR_R&0xFF);
+	case uart6:
+		while (UART_Available(uart6)!=one);
+		value = (uint8)(UART6_DR_R&0xFF);
 		break;
 	
-	case 7:
-		while (UART_Available(7)!=1);
-		return (uint8_t)(UART7_DR_R&0xFF);
+	case uart7:
+		while (UART_Available(uart7)!=one);
+		value = (uint8)(UART7_DR_R&0xFF);
 		break;
+	}		
+return value;
 }	
-}
+
