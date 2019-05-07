@@ -1,6 +1,3 @@
-#include "tm4c123gh6pm.h"
-#include "MACROS.h"
-#include "STANDARD_TYPES.h"
 #include "PWM.h"
 
 //----------------------- PWM_Enable --------------------------
