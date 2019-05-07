@@ -5,39 +5,42 @@
   * @retval uint8 to return 1 if available 0 if not available
   */
 	
-<UART.h>
+#include "UART.h"
+
 uint8 UART_Available(UARTNUM UartNum){
+	uint8 available;
 	switch(UartNum){
-		case 0:
-			return ((UART0_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
+		case uart0:
+		((UART0_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? (available = 0) : (available = 1);
 		break;
 		
-		case 1:
-			return ((UART1_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
+		case uart1:
+		((UART1_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? (available = 0) : (available = 1);
 		break;
 		
-		case 2:
-			return ((UART2_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
+		case uart2:
+		((UART2_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? (available = 0) : (available = 1);
 		break;
 		
-		case 3:
-			return ((UART3_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
+		case uart3:
+		((UART3_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? (available = 0) : (available = 1);
 		break;
 		
-		case 4:
-			return ((UART4_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
+		case uart4:
+		((UART4_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? (available = 0) : (available = 1);
 		break;
 		
-		case 5:
-			return ((UART5_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
+		case uart5:
+		((UART5_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? (available = 0) : (available = 1);
 		break;
 		
-		case 6:
-			return ((UART6_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
+		case uart6:
+		((UART6_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? (available = 0) : (available = 1);
 		break;
 		
-		case 7:
-			return ((UART7_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? 0 : 1;
+		case uart7:
+		((UART7_FR_R&UART_FR_RXFE) == UART_FR_RXFE) ? (available = 0) : (available = 1);
 		break;
 	}
+	return available;
 }
