@@ -12,25 +12,24 @@
 #define LCD_H_
 
 #include "DIO.h"
-#include "port.h"
 #include "SysTick.h"
-
 /*******************************************************************************
  *                      Preprocessor Macros                                    *
  *******************************************************************************/
 
 /* LCD HW Pins */
-#define RS 2 /*Select  0 for Instruction Register ,  1 for Data Register*/
-#define RW 3 /*Select  0 for Write , 1 For Read*/
-#define E  4 /*Starts Data read/Write ( Transaction From High To Low When Writing ,
+#define RS 5 /*Select  0 for Instruction Register ,  1 for Data Register*/
+#define RW 6 /*Select  0 for Write , 1 For Read*/
+#define E  7 /*Starts Data read/Write ( Transaction From High To Low When Writing ,
  *             Transaction From Low to High when Reading Data will be Available as 
  *				 		 long as the signal is High)*/
-#define LCD_CTRL_PORT 0
+#define LCD_CTRL_PORT 1
 #define LCD_DATA_PORT 1
 
 /* LCD Commands */
 #define CLEAR_COMMAND 0x01
 #define TWO_LINE_LCD_Eight_BIT_MODE 0x38
+#define TWO_LINE_LCD_Four_BIT_MODE 0x02
 #define CURSOR_OFF 0x0C
 #define CURSOR_ON 0x0E
 #define SET_CURSOR_LOCATION 0x80 
@@ -48,5 +47,8 @@ void LCD_clearScreen(void);
 void LCD_displayStringRowColumn(uint8 row,uint8 col,const char *Str);
 void LCD_goToRowColumn(uint8 row,uint8 col);
 void LCD_intgerToString(int data);
+void LCD_displayCharacter4bit(uint8 data);
+void LCD_sendCommand4bit(uint8 command);
+
 
 #endif /* LCD_H_ */
