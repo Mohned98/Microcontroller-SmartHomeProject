@@ -4,7 +4,7 @@
 
 #define GPIO_PORTF321_DATA_R      (*((volatile unsigned long *)0x40025038))
 
-typedef enum RGB_LED_Color {
+typedef enum{
 	dark = 0x00,
 	red = 0x02,
 	blue = 0x04,
