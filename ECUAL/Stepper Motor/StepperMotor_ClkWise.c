@@ -1,4 +1,5 @@
 #include "Stepper_Motor.h"
+#include "Systick.h"
 void StepperMotor_ClkWise(Dio_PortName port_name, uint8 pins_mask,float32 cycle)
 {
 	uint8 i=0;
