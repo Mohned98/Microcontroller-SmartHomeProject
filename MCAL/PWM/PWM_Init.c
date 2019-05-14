@@ -42,7 +42,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM0_0_LOAD_R = period - 1;
 				
 					// Set the duty cycle count.
-					PWM0_0_CMPA_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM0_0_CMPA_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM0_0_CTL_R |= 0x01; 
@@ -73,7 +73,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM0_0_LOAD_R = period - 1;
 					
 					// Set the duty cycle count.
-					PWM0_0_CMPB_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM0_0_CMPB_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM0_0_CTL_R |= 0x01; 
@@ -104,7 +104,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM0_1_LOAD_R = period - 1;
 					
 					// Set the duty cycle count.
-					PWM0_1_CMPA_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM0_1_CMPA_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM0_1_CTL_R |= 0x01; 
@@ -136,7 +136,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM0_1_LOAD_R = period - 1;
 					
 					// Set the duty cycle count.
-					PWM0_1_CMPB_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM0_1_CMPB_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM0_1_CTL_R |= 0x01; 
@@ -167,7 +167,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM0_2_LOAD_R = period - 1;
 					
 					// Set the duty cycle count.
-					PWM0_2_CMPA_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM0_2_CMPA_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1);
 				
 					// Enable the generator, i.e. start the timer.
 					PWM0_2_CTL_R |= 0x01; 
@@ -199,7 +199,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM0_2_LOAD_R = period - 1;
 						
 					// Set the duty cycle count.
-					PWM0_2_CMPB_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM0_2_CMPB_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1);
 				
 					// Enable the generator, i.e. start the timer.
 					PWM0_2_CTL_R |= 0x01; 
@@ -231,7 +231,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM0_3_LOAD_R = period - 1;
 					
 					// Set the duty cycle count.
-					PWM0_3_CMPA_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM0_3_CMPA_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM0_3_CTL_R |= 0x01; 
@@ -264,7 +264,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM0_3_LOAD_R = period - 1;
 				
 					// Set the duty cycle count.
-					PWM0_3_CMPB_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM0_3_CMPB_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM0_3_CTL_R |= 0x01; 
@@ -305,7 +305,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM1_0_LOAD_R = period - 1;
 				
 					// Set the duty cycle count.
-					PWM1_0_CMPA_R =(uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM1_0_CMPA_R =(duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1);
 				
 					// Enable the generator, i.e. start the timer.
 					PWM1_0_CTL_R |= 0x01; 
@@ -338,7 +338,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM1_0_LOAD_R = period - 1;
 					
 					// Set the duty cycle count.
-					PWM1_0_CMPB_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM1_0_CMPB_R =(duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM1_0_CTL_R |= 0x01; 
@@ -371,7 +371,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM1_1_LOAD_R = period - 1;
 					
 					// Set the duty cycle count.
-					PWM1_1_CMPA_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM1_1_CMPA_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM1_1_CTL_R |= 0x01; 
@@ -403,7 +403,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM1_1_LOAD_R = period - 1;
 					
 					// Set the duty cycle count.
-					PWM1_1_CMPB_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM1_1_CMPB_R =(duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM1_1_CTL_R |= 0x01; 
@@ -436,7 +436,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM1_2_LOAD_R = period - 1;
 					
 					// Set the duty cycle count.
-					PWM1_2_CMPA_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM1_2_CMPA_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM1_2_CTL_R |= 0x01; 
@@ -468,7 +468,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM1_2_LOAD_R = period - 1;
 						
 					// Set the duty cycle count.
-					PWM1_2_CMPB_R = (uint16)(period * (1 - (duty / 100.0)) - 1);
+					PWM1_2_CMPB_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM1_2_CTL_R |= 0x01; 
@@ -500,7 +500,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM1_3_LOAD_R = period - 1;
 					
 					// Set the duty cycle count.
-					PWM1_3_CMPA_R = (uint16)(period * (1 - (duty / 100.0)) - 1); 
+					PWM1_3_CMPA_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM1_3_CTL_R |= 0x01; 
@@ -534,7 +534,7 @@ void PWM_Init(PWMModule module, PWMChannel channel, uint16 period, uint16 duty)
 					PWM1_3_LOAD_R = period - 1;
 				
 					// Set the duty cycle count.
-					PWM1_3_CMPB_R = (uint16)(period * (1 - (duty / 100.0)) - 1); 
+					PWM1_3_CMPB_R = (duty == 0) ? period-2 : (uint16)(period * (1 - (duty / 100.0)) - 1) ;
 				
 					// Enable the generator, i.e. start the timer.
 					PWM1_3_CTL_R |= 0x01; 
