@@ -30,6 +30,6 @@ typedef enum {
 
 void ADC_init(ADC_Channel Channel);
 
-float ADC_read(ADC_Channel Channel);
+uint16 ADC_read(ADC_Channel Channel);
 
 #endif /* ADC_H_ */

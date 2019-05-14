@@ -62,9 +62,9 @@ switch (Channel)
 }
 }
 
-float ADC_read(ADC_Channel Channel)
+uint16 ADC_read(ADC_Channel Channel)
 {	
-float result;
+uint16 result;
 //make sure the gpio is ready
 SYSCTL_RCGCGPIO_R |= (Channel <= 3 || Channel == 8 || Channel == 9)? SYSCTL_RCGCGPIO_R4:(Channel >= 4 && Channel <= 7)? SYSCTL_RCGCGPIO_R3 : SYSCTL_RCGCGPIO_R1;
 // seqncer 
