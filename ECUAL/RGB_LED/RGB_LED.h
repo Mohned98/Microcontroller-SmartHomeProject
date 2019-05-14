@@ -1,6 +1,6 @@
 #ifndef __RGB_LED_H__
 #define __RGB_LED_H__
-
+#include "STANDARD_TYPES.h"
 
 #define GPIO_PORTF321_DATA_R      (*((volatile unsigned long *)0x40025038))
 
@@ -21,4 +21,5 @@ void RGB_LED_Init(void);
 
 void RGB_LED_Set_Color(LED_RGB_Color color);
 
+void RGB_LED_Set_Intensity(uint16 intensity);
 #endif // __LED_RGB_H__
