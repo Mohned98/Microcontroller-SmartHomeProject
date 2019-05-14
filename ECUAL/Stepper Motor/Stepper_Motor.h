@@ -2,19 +2,18 @@
 #define STEPPER_MOTOR_H_
 
 #include "DIO.h"
+#include "Systick.h"
 
-typedef enum
-	{
-		Stepper_Blue,
-		Stepper_Pink,
-		Stepper_Red,
-		Stepper_Orange,
-		Stepper_Yellow
-	}Stepper_Pin_Color;
-	
+#define STEPPER_PORT PORTA
+#define STEPPER_BLUE 0
+#define STEPPER_PINK 1
+#define STEPPER_RED 2
+#define STEPPER_ORANGE 3
+#define STEPPER_YELLOW 4
+#define STEPPER_MASK ((1<<STEPPER_BLUE)|(1<<STEPPER_PINK)|(1<<STEPPER_RED)|(1<<STEPPER_ORANGE)|(1<<STEPPER_YELLOW))
 
-void StepperMotor_Init(Dio_PortName port_name,uint8 pins_mask);
-void StepperMotor_ClkWise(Dio_PortName port_name, uint8 pins_mask,float32 cycle);
-void StepperMotor_AntiClkWise(Dio_PortName port_name, uint8 pins_mask,float32 cycle);
-void StepperMotor_Stop(Dio_PortName port_name, uint8 pins_mask);
+void StepperMotor_Init();
+void StepperMotor_ClkWise(float32 cycle);
+void StepperMotor_AntiClkWise(float32 cycle);
+void StepperMotor_Stop();
 #endif /* STEPPER_MOTOR_H_ */
