@@ -29,7 +29,7 @@
 #define SERVO_FREQENCY 50
 #define PWM_PERIOD (PWM_CLK/SERVO_FREQENCY)
 #define ANGLE0_DUTYCYCLE 5
-#define ANGLE180_DUTYCYCLE 10
+#define ANGLE180_DUTYCYCLE 14
 
 /*-------------------------------------------function prototypes------------------------------------------------*/
 

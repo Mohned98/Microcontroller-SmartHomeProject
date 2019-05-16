@@ -6,7 +6,7 @@
 #include "tm4c123gh6pm.h"
 #include <math.h>
 
-#define FREQUENCY 							16000000
+#define FREQUENCY 							80000000
 #define NVIC_ST_CTRL_COUNT      0x00010000  // Count flag
 #define NVIC_ST_CTRL_CLK_SRC    0x00000004  // Clock Source
 #define NVIC_ST_CTRL_INTEN      0x00000002  // Interrupt enable

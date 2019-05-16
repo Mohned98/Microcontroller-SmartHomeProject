@@ -11,8 +11,8 @@ typedef enum
 }InputMode;
 
 void Button_Init( Dio_PortName port_name, uint8 pins_mask, InputMode mode );
-void Button_ActOnRisingEdge( Dio_PortName port_name, uint8 pin_Number, void (*pAction)(void) );
-void Button_ActOnFallingEdge( Dio_PortName port_name, uint8 pin_Number, void (*pAction)(void) );	
+void Button_ActOnPressing( Dio_PortName port_name, uint8 pin_Number, void (*pAction)(void) );
+void Button_ActOnReleasing( Dio_PortName port_name, uint8 pin_Number, void (*pAction)(void) );	
 void Button_ActOnHighLevel( Dio_PortName port_name, uint8 pin_Number, void (*pAction)(void) );
 void Button_ActOnLowLevel( Dio_PortName port_name, uint8 pin_Number, void (*pAction)(void) );
 

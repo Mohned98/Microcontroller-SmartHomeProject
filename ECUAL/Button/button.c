@@ -1,8 +1,8 @@
-include"button.h"
+#include "button.h"
 
 void Button_Init( Dio_PortName port_name, uint8 pins_mask, InputMode mode )
 {
-	DIO_init(port_name,pins_mask);
+	DIO_Init(port_name,pins_mask);
 	DIO_SetPinDirection(port_name, pins_mask, DIO_PIN_IN);
 	if(mode == PULL_DOWN)
 		DIO_SetPinPullDown(port_name, pins_mask);
